@@ -1,12 +1,6 @@
-#![feature(strict_provenance)]
-
 use neon::prelude::*;
 use read_process_memory::{self, Pid, ProcessHandle};
 use std::{convert::TryInto, io};
-
-fn hello(mut cx: FunctionContext) -> JsResult<JsString> {
-    Ok(cx.string("hello node"))
-}
 
 fn pid_to_handle(pid: Pid) -> io::Result<ProcessHandle> {
     Ok(pid.try_into()?)
@@ -31,11 +25,10 @@ fn read_memory_inner(address: usize, length: usize, pid: usize) -> Result<Vec<u8
 }
 
 fn read_memory(mut cx: FunctionContext) -> JsResult<JsArray> {
-    let address_f64 = cx.argument::<JsNumber>(0)?.value(&mut cx);
-    let length_f64 = cx.argument::<JsNumber>(1)?.value(&mut cx);
-    let pid_f64 = cx.argument::<JsNumber>(2)?.value(&mut cx);
+    let pid_f64 = cx.argument::<JsNumber>(0)?.value(&mut cx);
+    let address_f64 = cx.argument::<JsNumber>(1)?.value(&mut cx);
+    let length_f64 = cx.argument::<JsNumber>(2)?.value(&mut cx);
 
-    // let pointer: *const usize = std::ptr::addr_of!(pid_f64).cast();
     let address: usize = address_f64.floor() as usize;
     let length: usize = length_f64.floor() as usize;
     let pid: usize = pid_f64.floor() as usize;
@@ -56,7 +49,6 @@ fn read_memory(mut cx: FunctionContext) -> JsResult<JsArray> {
 
 #[neon::main]
 fn main(mut cx: ModuleContext) -> NeonResult<()> {
-    cx.export_function("hello", hello)?;
     cx.export_function("read_memory", read_memory)?;
     Ok(())
 }
