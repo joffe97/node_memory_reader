@@ -1,7 +1,7 @@
 {
   "name": "node_memory_reader",
-  "version": "0.1.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Package for node that reads bytes from memory for a given process",
   "main": "index.node",
   "scripts": {
     "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
@@ -11,7 +11,8 @@
     "test": "cargo test"
   },
   "author": "joachima94@gmail.com",
-  "license": "ISC",
+  "url": "https://github.com/joffe97/node_memory_reader",
+  "license": "MIT",
   "devDependencies": {
     "cargo-cp-artifact": "^0.1"
   },
