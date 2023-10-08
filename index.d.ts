@@ -1,0 +1,1 @@
+export declare function read_memory(pid: number, address: number, length: number): number[];

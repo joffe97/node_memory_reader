@@ -12,6 +12,10 @@
   },
   "author": "joachima94@gmail.com",
   "url": "https://github.com/joffe97/node_memory_reader",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/joffe97/node_memory_reader"
+  },
   "license": "MIT",
   "dependencies": {
     "cargo-cp-artifact": "^0.1"
