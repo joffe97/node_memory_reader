@@ -12,6 +12,7 @@ crate-type = ["cdylib"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0.75"
 read-process-memory = "0.1.6"
 
 [dependencies.neon]

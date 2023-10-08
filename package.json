@@ -1,6 +1,6 @@
 {
   "name": "node_memory_reader",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Package for node that reads bytes from memory for a given process",
   "main": "index.node",
   "scripts": {
